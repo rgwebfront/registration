@@ -47,12 +47,17 @@ body {
   margin-bottom: 42px;
 }
 
-.full_name {
+.full_name,
+.user_name,
+.user_mail,
+.user_password,
+.user_repeat_password {
   display: flex;
   flex-direction: column;
   color: #C6C6C4;
   font-size: 16px;
   line-height: 27px;
+  margin-bottom: 20px;
 }
 
 .base-input {
@@ -68,6 +73,16 @@ body {
 .base-input::placeholder {
   color: #323232;
   font-size: 20px;
+}
+
+.user_confirmation {
+  padding-top: 10px;
+}
+
+.custom-checkbox {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
 }
 
 .main__image {
