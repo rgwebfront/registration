@@ -21,31 +21,39 @@
         <div class="main__title">Get your free account</div>
         <div class="main__description">Try homeWorks BUSINESS free for 15 days. Downgrade to Basic (Free Forever)
           anytime.</div>
-        <div class="full_name">
-          <label for="full_name-input" class="label-input">Full Name</label>
-          <input type="text" class="base-input" name="full-name" id="full_name-input" placeholder="Antony Swarowski">
+        <form action="#" method="post" id="form-registration">
+          <div class="full_name">
+            <label for="full_name-input" class="label-input">Full Name</label>
+            <input type="text" class="base-input" name="full-name" id="full_name-input" placeholder="Antony Swarowski">
+          </div>
+          <div class="user_name">
+            <label for="user_name-input" class="label-input">Your username</label>
+            <input type="text" class="base-input" name="user-name" id="user_name-input" placeholder="">
+          </div>
+          <div class="user_mail">
+            <label for="user_mail-input" class="label-input">E-mail</label>
+            <input type="text" class="base-input" name="user-mail" id="user_mail-input" placeholder="">
+          </div>
+          <div class="user_password">
+            <label for="user_password-input" class="label-input">Password</label>
+            <input type="text" class="base-input" name="user-password" id="user_password-input" placeholder="">
+          </div>
+          <div class="user_repeat_password">
+            <label for="user_repeat_password-input" class="label-input">Repeat Password</label>
+            <input type="text" class="base-input" name="user-password" id="user_repeat_password-input" placeholder="">
+          </div>
+          <div class="user_confirmation">
+            <input type="checkbox" class="custom-checkbox" name="user-agree" id="custom-checkbox" value="yes" checked>
+            <label for="custom-checkbox" class="confirmation">Agree to our Terms of Service and Privacy
+              Statement</label>
+          </div>
+          <div class="user_sign">
+            <button class="user_sign-button" id="sign_button" type="submit">Sign Up</button>
+          </div>
+        </form>
+        <div class="user_authorization">
+          <a href="#" class="user_authorization-link">Already have an account?</a>
         </div>
-        <div class="user_name">
-          <label for="user_name-input" class="label-input">Your username</label>
-          <input type="text" class="base-input" name="user-name" id="user_name-input" placeholder="">
-        </div>
-        <div class="user_mail">
-          <label for="user_mail-input" class="label-input">E-mail</label>
-          <input type="text" class="base-input" name="user-mail" id="user_mail-input" placeholder="">
-        </div>
-        <div class="user_password">
-          <label for="user_password-input" class="label-input">Password</label>
-          <input type="text" class="base-input" name="user-password" id="user_password-input" placeholder="">
-        </div>
-        <div class="user_repeat_password">
-          <label for="user_repeat_password-input" class="label-input">Repeat Password</label>
-          <input type="text" class="base-input" name="user-password" id="user_repeat_password-input" placeholder="">
-        </div>
-        <div class="user_confirmation">
-          <input type="checkbox" class="custom-checkbox" name="user-agree" id="custom-checkbox" value="yes">
-          <label for="custom-checkbox" class="confirmation">Agree to our Terms of Service and Privacy Statement</label>
-        </div>
-
       </div>
       <div class="main__image">
         <img src="images/image.png" alt="img" class="main__image-img">
