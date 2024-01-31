@@ -3,17 +3,17 @@ window.onload = function () {
 
   // 2. В поле "Full Name" запретите вводить цифры.
 
-  const fullName = document.getElementById('full_name-input');
-  fullName.onkeydown = (e) => {
-    let letters = parseInt(e.key);
-    if (!isNaN(letters)) {
+  const fullNameElement = document.getElementById('full_name-input');
+  fullNameElement.onkeydown = (e) => {
+    let letter = parseInt(e.key);
+    if (!isNaN(letter)) {
       return false;
     }
   };
 
   // 3. В поле "Your username" запретите вводить точки и запятые.
-  const userName = document.getElementById('user_name-input');
-  userName.onkeydown = (e) => {
+  const userNameElement = document.getElementById('user_name-input');
+  userNameElement.onkeydown = (e) => {
     let symbol = e.key;
     if (symbol === '.' || symbol === ',') {
       return false
@@ -22,9 +22,9 @@ window.onload = function () {
 
   // 4. При изменении значения чекбокса выводите в консоль соответствующее сообщение: “Согласен” или “Не согласен”.
 
-  const checkBox = document.getElementById('custom-checkbox');
-  checkBox.addEventListener('click', (event) => {
-    if (checkBox.checked) {
+  const checkBoxElement = document.getElementById('custom-checkbox');
+  checkBoxElement.addEventListener('click', (event) => {
+    if (checkBoxElement.checked) {
       console.log('Согласен');
     } else {
       console.log('Не согласен');
@@ -38,52 +38,52 @@ window.onload = function () {
   // • Проверьте выбран ли чекбокс. Если чекбокс не выбран, выведите сообщение об ошибке, используя alert.
   // • Если код прошёл все проверки успешно - должен появиться попап с текстом «На вашу почту выслана ссылка, перейдите по ней, чтобы завершить регистрацию» и кнопкой «ОК». При нажатии на кнопку «ОК» окно закрывается, форма очищается и пользователя перебрасывает на страницу логина (см. п.6). Модального окна в макете нет, его нужно создать самостоятельно, соблюдая общую стилистику макета.
 
-  const signUp = document.getElementById('sign_button');
+  const signUpElement = document.getElementById('sign_button');
 
-  signUp.addEventListener('click', (event) => {
+  signUpElement.addEventListener('click', (event) => {
     validateForm(event);
   });
 
-  const popupBg = document.querySelector('.popup__bg');
-  const popup = document.querySelector('.popup');
-  const closePopupButton = document.querySelector('.popup__close');
-  const popupButton = document.querySelector('.popup__button');
+  const popupBgElement = document.querySelector('.popup__bg');
+  const popupElement = document.querySelector('.popup');
+  const closePopupButtonElement = document.querySelector('.popup__close');
+  const popupButtonElement = document.querySelector('.popup__button');
 
   function validateForm(event) {
     event.preventDefault();
 
-    const inputs = document.getElementsByClassName('base-input');
+    const inputsElement = document.getElementsByClassName('base-input');
 
-    for (let i = 0; i < inputs.length; i++) {
-      let inputValue = inputs[i].value;
-      let label = inputs[i].previousElementSibling.textContent.trim();
+    for (let i = 0; i < inputsElement.length; i++) {
+      let inputValue = inputsElement[i].value;
+      let label = inputsElement[i].previousElementSibling.textContent.trim();
       if (inputValue === '') {
         return alert('Заполните поле' + ' ' + label);
       }
     }
 
-    const passwordInput = document.getElementById('user_password-input');
-    const repeatPasswordInput = document.getElementById('user_repeat_password-input');
+    const passwordInputElement = document.getElementById('user_password-input');
+    const repeatPasswordInputElement = document.getElementById('user_repeat_password-input');
 
-    if (passwordInput.value.length < 8) {
+    if (passwordInputElement.value.length < 8) {
       return alert('Пароль должен содержать не менее 8 символов');
-    } else if (passwordInput.value !== repeatPasswordInput.value) {
+    } else if (passwordInputElement.value !== repeatPasswordInputElement.value) {
       return alert('Пароли из двух текстовых полей не совпадают');
     }
 
-    if (!checkBox.checked) {
+    if (!checkBoxElement.checked) {
       return alert('Пожалуйста, подтвердите, что Вы ознакомились с нашими Правилами пользования')
     }
 
-    popupBg.classList.add('active');
-    popup.classList.add('active');
+    popupBgElement.classList.add('active');
+    popupElement.classList.add('active');
   };
 
 
   document.addEventListener('click', (event) => {
-    if (event.target === closePopupButton || event.target === popupBg) {
-      popupBg.classList.remove('active');
-      popup.classList.remove('active');
+    if (event.target === closePopupButtonElement || event.target === popupBgElement) {
+      popupBgElement.classList.remove('active');
+      popupElement.classList.remove('active');
     }
   });
 
@@ -96,8 +96,8 @@ window.onload = function () {
   // • Ссылку "Already have an account?" удалить.
   // • Заменить слушатель события для кнопки «Sign In»: нужно проверить только то, что оба поля (Username и Password) заполнены. Если какое-то из полей не заполнено - вывести ошибку. Если оба заполнены - вывести через alert сообщение "Добро пожаловать, username!", где username - значение из соответствующего поля.
 
-  const haveAccount = document.getElementById('have-account');
-  const inputsClear = document.getElementsByClassName('base-input');
+  const haveAccountElement = document.getElementById('have-account');
+  const inputsClearElement = document.getElementsByClassName('base-input');
 
   function removeElementsByClass(className) {
     const elements = document.getElementsByClassName(className);
@@ -107,12 +107,12 @@ window.onload = function () {
   };
 
   document.addEventListener('click', (event) => {
-    if (event.target === haveAccount || event.target === popupButton) {
-      popupBg.classList.remove('active');
-      popup.classList.remove('active');
-      for (let i = 0; i < inputsClear.length; i++) {
-        if (inputsClear[i].value !== '') {
-          inputsClear[i].value = '';
+    if (event.target === haveAccountElement || event.target === popupButtonElement) {
+      popupBgElement.classList.remove('active');
+      popupElement.classList.remove('active');
+      for (let i = 0; i < inputsClearElement.length; i++) {
+        if (inputsClearElement[i].value !== '') {
+          inputsClearElement[i].value = '';
         }
       }
       document.getElementsByClassName('main__title')[0].textContent = "Log in to the system";
@@ -123,11 +123,11 @@ window.onload = function () {
       removeElementsByClass('user_confirmation');
       removeElementsByClass('user_authorization');
 
-      signUp.textContent = "Sign In";
-      const passwordInput = document.getElementById('user_password-input');
-      signUp.addEventListener('click', (event) => {
-        if (userName.value && passwordInput.value && passwordInput.value.length >= 8) {
-          alert('Добро пожаловать, ' + userName.value + '!');
+      signUpElement.textContent = "Sign In";
+      const passwordInputElement = document.getElementById('user_password-input');
+      signUpElement.addEventListener('click', (event) => {
+        if (userNameElement.value && passwordInputElement.value && passwordInputElement.value.length >= 8) {
+          alert('Добро пожаловать, ' + userNameElement.value + '!');
           location.reload();
         }
         else {
@@ -138,11 +138,5 @@ window.onload = function () {
     }
 
   });
-
-
-
-
-
-
 }
 
